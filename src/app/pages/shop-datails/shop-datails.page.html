@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="titulo">
+    <img src="{{ imagen }}" alt="" />
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ titulo }}
+        <ion-badge color="primary">{{ categoria }}</ion-badge>
+      </ion-card-title>
+      <ion-card-subtitle>
+        <ion-badge color="warning">${{ price }}</ion-badge><br />{{ description }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-button (click)="addToCart(product)">
+      <ion-icon name="cart"></ion-icon>
+      Agregar al carrito
+    </ion-button>
+    <ion-button [routerLink]="['/cart']">
+      <ion-icon name="cart"></ion-icon>
+      Carrito ({{ cartService.getItems().length }})
+    </ion-button>
+
+    <!-- Mostrar el código QR como imagen -->
+    <div style="display: flex; justify-content: center;" *ngIf="showQrCode">
+      <img [src]="qrData" alt="Código QR" />
+    </div>
+
+    <!-- Botón para mostrar/ocultar el código QR -->
+    <ion-button (click)="toggleQrCode()">
+      {{ showQrCode ? 'Ocultar código QR' : 'Mostrar código QR' }}
+    </ion-button>
+
+    <!-- Enlace para descargar el código QR -->
+    <ion-button (click)="descargarCodigoQR()">Descargar Código QR</ion-button>
+  </ion-card>
+</ion-content>

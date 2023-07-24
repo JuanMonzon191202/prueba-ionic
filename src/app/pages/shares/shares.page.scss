@@ -1,0 +1,11 @@
+.map-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .map-container {
+      height: 300px; // Ajusta la altura según tus necesidades en dispositivos móviles
+    }
+  }
+  

@@ -1,0 +1,17 @@
+<ion-content>
+  <!-- Contenido de la página -->
+  <div id="map-container"></div>
+
+  <!-- Formulario para seleccionar la ubicación -->
+  <ion-item>
+    <ion-label>Seleccionar ubicación:</ion-label>
+    <ion-select [(ngModel)]="selectedLocation" (ionChange)="mostrarUbicacionSeleccionada()">
+      <ion-select-option *ngFor="let location of locations" [value]="location">
+        {{ location.name }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Botón para localizar nuevamente la ubicación del usuario -->
+  <ion-button expand="block" (click)="localizarUbicacionUsuario()">Localizar mi ubicación</ion-button>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>shop</ion-title>
+    <ion-button expand="full" [routerLink]="'/shares'">Localizar</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let item of products" [routerLink]="[item.id]">
+      <ion-thumbnail slot="start">
+        <img [src]="item.image" />
+      </ion-thumbnail>
+      <ion-label>
+        {{item.title}}
+        <p>${{item.price}}</p>
+      </ion-label>
+      <ion-badge color="primary">{{item.rating.rate}}</ion-badge>
+    </ion-item>
+  </ion-list>
+  
+  <!-- Agregar el botón -->
+  
+  
+</ion-content>
+
